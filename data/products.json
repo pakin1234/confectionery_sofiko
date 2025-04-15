@@ -1,0 +1,24 @@
+[
+    {
+      "category": "cupcake",
+      "name": "Пироги",
+      "items": [{"item": "Павлова", "callback_data": "pavlova", "price": 500}]
+    },
+    {
+      "category": "cake",
+      "name": "Торты",
+      "items": [
+        {"item": "Сникерс", "callback_data": "snickers", "price": 1500},
+        {"item": "Медовик", "callback_data": "medovik", "price": 1200}
+      ]
+    },
+    {
+      "category": "bouquet",
+      "name": "Шоколадные букеты",
+      "items": [
+        {"item": "Гвоздика", "callback_data": "carnation", "price": 800},
+        {"item": "Роза", "callback_data": "rose", "price": 900},
+        {"item": "Яблоня", "callback_data": "apple", "price": 850}
+      ]
+    }
+  ]
