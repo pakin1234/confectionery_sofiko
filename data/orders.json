@@ -17,6 +17,145 @@
             "paid": false,
             "date": "2025-04-15",
             "timestamp": 1744749973
+        },
+        {
+            "order_id": 3,
+            "item": "Мастер-класс по тортам",
+            "type": "course",
+            "price": 2500,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744899401
+        },
+        {
+            "order_id": 4,
+            "item": "Мастер-класс по тортам",
+            "type": "course",
+            "price": 1000,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744899401
+        },
+        {
+            "order_id": 5,
+            "item": "Курс по кексам",
+            "type": "course",
+            "price": 750,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744899444
+        },
+        {
+            "order_id": 6,
+            "item": "Сникерс",
+            "type": "product",
+            "price": 4500,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744899444
+        },
+        {
+            "order_id": 7,
+            "item": "Медовик",
+            "type": "product",
+            "price": 2400,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744899454
+        }
+    ],
+    "5253954023": [
+        {
+            "order_id": 1,
+            "item": "Павлова",
+            "type": "product",
+            "price": 500,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744907765
+        },
+        {
+            "order_id": 2,
+            "item": "Медовик",
+            "type": "product",
+            "price": 2400,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744907765
+        },
+        {
+            "order_id": 3,
+            "item": "Шоколадная флористика",
+            "type": "course",
+            "price": 2000,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744907843
+        },
+        {
+            "order_id": 4,
+            "item": "Дополнительные десерты",
+            "type": "course",
+            "price": 1400,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744907843
+        }
+    ],
+    "876225860": [
+        {
+            "order_id": 1,
+            "item": "Шоколадная флористика",
+            "type": "course",
+            "price": 10000,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744909932
+        },
+        {
+            "order_id": 2,
+            "item": "Мастер-класс по тортам",
+            "type": "course",
+            "price": 1500,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744909932
+        },
+        {
+            "order_id": 3,
+            "item": "Мини-курс по кексам",
+            "type": "course",
+            "price": 2500,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744909932
+        },
+        {
+            "order_id": 4,
+            "item": "Шоколадная флористика",
+            "type": "course",
+            "price": 4000,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744911847
+        },
+        {
+            "order_id": 5,
+            "item": "Мастер-класс по тортам",
+            "type": "course",
+            "price": 4500,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744911847
+        },
+        {
+            "order_id": 6,
+            "item": "Мини-курс по кексам",
+            "type": "course",
+            "price": 1250,
+            "paid": false,
+            "date": "2025-04-17",
+            "timestamp": 1744911847
         }
     ]
 }

@@ -7,6 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 
 from handlers.common import common_router
 from handlers.menu import menu_router
+from handlers.courses import courses_router
 
 from data_manager import DataManager
 
@@ -22,6 +23,7 @@ async def on_startup():
     await data_manager.load_products_base()  # Загружаем данные
 
 dp.startup.register(on_startup)
+dp.include_router(courses_router)
 dp.include_router(common_router)
 dp.include_router(menu_router)
 

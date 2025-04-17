@@ -12,12 +12,13 @@ ORDERS_FILE = "../data/orders.json"
 PRODUCTS_FILE = "../data/products.json"
 COURSES_FILE = "../data/courses.json"
 
+'''АРТЁМ: поменял атрибуты класса'''
 class Course(BaseModel):
     item: str
     type: str
     description: str
-    schedule: str
     price: int
+    image_url: str = None  # Новое поле для URL изображения
 
 class Product(BaseModel):
     item: str
@@ -40,6 +41,7 @@ class DataManager:
         self.products_file_path = products_file_path
         self.courses_file_path = courses_file_path
         self._products_data: List[Dict] = []
+        self._courses_data: List[Course] = []  # Новое поле для кэширования курсов
 
     async def _load_products_initial(self) -> None:
         """Асинхронная загрузка данных из products.json."""
@@ -88,28 +90,58 @@ class DataManager:
     #         data = json.loads(content)
     #         # ПАША: исправил на просто возвращение списка для файла product.json с категориями
     #         return data
-        
-    async def load_courses_base(self) -> List[Course]:
-        ''' 
-        Получаем всю базу курсов
-        возвращает значение типа: [Course(item='Инфоцыганский курс 1', 
-        type='course', description='Научим печь cumдитерские изделия', 
-        schedule='8:40 - бегит; 9:00 - прес качат; 9:05 - анжуманя; 9:07 - турник; 10:00 - месить тесто', 
-        price=300), ...]
-        надо будет распарсить, когда будем состыковывать модули
-        '''
 
+    async def _load_courses_initial(self) -> None:
+        """Асинхронная загрузка данных из courses.json."""
         if not os.path.exists(self.courses_file_path):
-            return {}
+            self._courses_data = []
+            return
 
-        async with aiofiles.open(self.courses_file_path, mode='r', encoding='utf-8') as f:
-            content = await f.read()
-            if not content.strip():
-                return {}
+        try:
+            async with aiofiles.open(self.courses_file_path, mode='r', encoding='utf-8') as f:
+                content = await f.read()
+                if not content.strip():
+                    self._courses_data = []
+                    return
 
-            data = json.loads(content)
-            
-            return [Course(**item) for item in data]
+                data = json.loads(content)
+                self._courses_data = [Course(**item) for item in data]
+        except (json.JSONDecodeError, Exception):
+            self._courses_data = []
+
+    async def load_courses_base(self) -> List[Course]:
+        """Возвращает кэшированные данные о курсах."""
+        if not self._courses_data:
+            await self._load_courses_initial()
+        return self._courses_data
+
+    async def reload_courses(self) -> None:
+        """Перезагружает данные из courses.json."""
+        await self._load_courses_initial()
+
+    '''АРТЁМ: заккоментил владовский код, сделал такую же реализацию как у паши с кэшем'''
+
+    # async def load_courses_base(self) -> List[Course]:
+    #     '''
+    #     Получаем всю базу курсов
+    #     возвращает значение типа: [Course(item='Инфоцыганский курс 1',
+    #     type='course', description='Научим печь cumдитерские изделия',
+    #     schedule='8:40 - бегит; 9:00 - прес качат; 9:05 - анжуманя; 9:07 - турник; 10:00 - месить тесто',
+    #     price=300), ...]
+    #     надо будет распарсить, когда будем состыковывать модули
+    #     '''
+    #
+    #     if not os.path.exists(self.courses_file_path):
+    #         return {}
+    #
+    #     async with aiofiles.open(self.courses_file_path, mode='r', encoding='utf-8') as f:
+    #         content = await f.read()
+    #         if not content.strip():
+    #             return {}
+    #
+    #         data = json.loads(content)
+    #
+    #         return [Course(**item) for item in data]
 
     async def load_orders_base(self) -> Dict[str, List[Order]]:
         ''' Получаем всю базу заказов '''

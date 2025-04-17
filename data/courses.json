@@ -1,0 +1,30 @@
+[
+    {
+        "item": "Шоколадная флористика",
+        "type": "course",
+        "description": "Научим изготавливать кондитерские цветы с нуля! От простых экземпляров до самых сложных.",
+        "price": 2000,
+        "image_url": "images/rose.jpg"
+    },
+    {
+        "item": "Мастер-класс по тортам",
+        "type": "course",
+        "description": "Глубокое погружение в искусство создания многослойных тортов.",
+        "price": 1500,
+        "image_url": "images/stepkarastepka.jpg"
+    },
+    {
+        "item": "Мини-курс по кексам",
+        "type": "course",
+        "description": "Освойте секреты идеальных кексов и маффинов за один день.",
+        "price": 1250,
+        "image_url": "images/cupcakes.jpg"
+    },
+    {
+        "item": "Дополнительные десерты",
+        "type": "course",
+        "description": "Научитесь работать с разными идеями и создавать изысканные десерты.",
+        "price": 1400,
+        "image_url": "images/desert.jpg"
+    }
+]
