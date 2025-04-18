@@ -54,9 +54,7 @@ async def start_order(message: Message, state: FSMContext):
         await state.update_data(cart=[])
 
     kb = await get_category_kb()
-# Убираем reply-клавиатуру и показываем inline-клавиатуру
     await message.answer("Выберите категорию:", reply_markup=kb)
-    await message.answer("Категории:", reply_markup=ReplyKeyboardRemove())
     await state.set_state(None)
 
 @menu_router.callback_query(F.data.in_({"cupcake", "cake", "bouquet"}))

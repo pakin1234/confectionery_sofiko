@@ -75,12 +75,14 @@ async def confirm_order(call: CallbackQuery, state: FSMContext):
         }
         await data_manager.add_order(user_id, order_data)
     
+    await call.message.edit_reply_markup(reply_markup=None)
     await call.message.answer("Ваш заказ сформирован")
     await state.clear()
     await call.answer()
 
 @common_router.callback_query(CartStates.viewing_cart, F.data=="clear_cart")
 async def clear_cart(call: CallbackQuery, state: FSMContext):
+    await call.message.edit_reply_markup(reply_markup=None)
     await state.clear()
     await call.message.answer("Ваша корзина очищена")
     await call.answer()
@@ -92,5 +94,6 @@ async def start_command(message: Message):
 @common_router.message(Command(commands="about"))
 async def start_command(message: Message):
     await message.answer("Мы — кондитерская СофиКо! Печем торты и учим других")
+
 
 # common_router.message.register(start_command, Command(commands="start"))
