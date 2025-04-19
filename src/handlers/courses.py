@@ -201,6 +201,7 @@ async def adjust_quantity(call: CallbackQuery, state: FSMContext) -> None:
         })
 
         await state.update_data(cart=cart)
+        await call.message.edit_reply_markup(reply_markup=None)
         await call.message.answer(
             f"Курс '{course_data.item}' ({quantity} шт.) добавлен в корзину. Хотите продолжить?",
             reply_markup=await get_main_menu_kb()

@@ -1,8 +1,8 @@
 import json
 import pandas as pd
 
-async def json_to_xlsx():
-    with open("../data/orders.json", "r", encoding="utf-8") as f:
+def json_to_xlsx():
+    with open("orders.json", "r", encoding="utf-8") as f:
         data = json.load(f)
     rows = []
     for user_id, orders in data.items():
@@ -17,9 +17,9 @@ async def json_to_xlsx():
             rows.append(row)
     rows.sort(key=lambda x: (x["Id клиента"], x.get("Дата заказа", "")))
     df = pd.DataFrame(rows)
-    df.to_excel("../data/orders.xlsx", index=False)
+    df.to_excel("orders.xlsx", index=False)
 
-    # print("Excel-файл создан: orders.xlsx")
+    print("Excel-файл создан: orders.xlsx")
 
-# print(pd.__version__)
-# json_to_xlsx()
+print(pd.__version__)
+json_to_xlsx()

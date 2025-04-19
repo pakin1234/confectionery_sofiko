@@ -36,6 +36,7 @@ async def get_main_menu_kb() -> ReplyKeyboardMarkup:
 @common_router.message(F.text == "Корзина")
 @common_router.message(Command(commands="cart"))
 async def view_cart(message: Message, state: FSMContext):
+    '''Показ корзины'''
     user_data = await state.get_data()
     cart = user_data.get("cart", [])
 
@@ -59,6 +60,7 @@ async def view_cart(message: Message, state: FSMContext):
 
 @common_router.callback_query(CartStates.viewing_cart, F.data == "confirm_order")
 async def confirm_order(call: CallbackQuery, state: FSMContext):
+    '''Подтверждение заказа'''
     user_data = await state.get_data()
     cart = user_data.get("cart", [])
 
@@ -86,12 +88,12 @@ async def confirm_order(call: CallbackQuery, state: FSMContext):
 
 @common_router.callback_query(CartStates.viewing_cart, F.data == "clear_cart")
 async def clear_cart(call: CallbackQuery, state: FSMContext):
-    await call.message.edit_reply_markup(reply_markup=None)
+    '''Очищение корзины'''
     await state.clear()
+    await call.message.edit_reply_markup(reply_markup=None)
     await call.message.answer("Ваша корзина очищена")
     await call.answer()
 
-'''АРТЁМ: добавлено сообщение /courses'''
 
 @common_router.message(Command(commands="start"))
 async def start_command(message: Message):
@@ -109,6 +111,3 @@ async def start_command(message: Message):
 async def about_command(message: Message):
     """Обработчик команды /about."""
     await message.answer("Мы — кондитерская СофиКо! Печем торты и учим других")
-
-
-# common_router.message.register(start_command, Command(commands="start"))

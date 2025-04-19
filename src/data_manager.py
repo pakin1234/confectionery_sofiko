@@ -7,8 +7,6 @@ from datetime import date
 from hashlib import sha256
 import time
 
-from excel_generator import json_to_xlsx
-
 
 ORDERS_FILE = "../data/orders.json"
 PRODUCTS_FILE = "../data/products.json"
@@ -71,6 +69,27 @@ class DataManager:
     async def reload_products(self) -> None:
         """Перезагружает данные из products.json."""
         await self._load_products_initial()
+
+    '''ПАША: Закомментировал код Влада, так как не получалось подгрузить данные'''
+    # async def load_products_base(self) -> List[Dict]:
+    #     # ПАША: возвращает просто список, надо исправить docstring
+    #     ''' 
+    #     Получаем всю базу кондитерских изделий 
+    #     возвращает значение типа: [Product(item='Торт Прага', type='product', price=300), ...]
+    #     надо будет распарсить, когда будем состыковывать модули
+    #     '''
+
+    #     if not os.path.exists(self.products_file_path):
+    #         return {}
+
+    #     async with aiofiles.open(self.products_file_path, mode='r', encoding='utf-8') as f:
+    #         content = await f.read()
+    #         if not content.strip():
+    #             return {}
+
+    #         data = json.loads(content)
+    #         # ПАША: исправил на просто возвращение списка для файла product.json с категориями
+    #         return data
 
     async def _load_courses_initial(self) -> None:
         """Асинхронная загрузка данных из courses.json."""
@@ -165,7 +184,6 @@ class DataManager:
         data[user_id_str] = order_list
 
         await self.save_all_data(data)
-        await json_to_xlsx()
         return order
 
     async def get_orders(self, user_id: int) -> List[Order]:

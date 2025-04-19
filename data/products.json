@@ -1,24 +1,24 @@
 [
-    {
-      "category": "cupcake",
-      "name": "Пироги",
-      "items": [{"item": "Павлова", "callback_data": "pavlova", "price": 500}]
-    },
-    {
-      "category": "cake",
-      "name": "Торты",
-      "items": [
-        {"item": "Сникерс", "callback_data": "snickers", "price": 1500},
-        {"item": "Медовик", "callback_data": "medovik", "price": 1200}
-      ]
-    },
-    {
-      "category": "bouquet",
-      "name": "Шоколадные букеты",
-      "items": [
-        {"item": "Гвоздика", "callback_data": "carnation", "price": 800},
-        {"item": "Роза", "callback_data": "rose", "price": 900},
-        {"item": "Яблоня", "callback_data": "apple", "price": 850}
-      ]
-    }
-  ]
+  {
+    "category": "cupcake",
+    "name": "Пироги",
+    "items": [{"item": "Павлова", "callback_data": "pavlova", "price": 200, "image_url": "images/pavlova.jpg"}]
+  },
+  {
+    "category": "cake",
+    "name": "Торты",
+    "items": [
+      {"item": "Сникерс", "callback_data": "snickers", "price": 1500, "image_url": "images/snickers.jpg"},
+      {"item": "Медовик", "callback_data": "medovik", "price": 2500, "image_url": "images/medovik.jpg"}
+    ]
+  },
+  {
+    "category": "bouquet",
+    "name": "Шоколадные букеты",
+    "items": [
+      {"item": "Пион", "callback_data": "pion", "price": 1000, "image_url": "images/pion.jpg"},
+      {"item": "Роза", "callback_data": "rose", "price": 500, "image_url": "images/rose.jpg"},
+      {"item": "Яблоня", "callback_data": "apple", "price": 1000, "image_url": "images/apple.jpg"}
+    ]
+  }
+]
