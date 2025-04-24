@@ -1,7 +1,7 @@
 [
   {
     "category": "cupcake",
-    "name": "Пироги",
+    "name": "Пирожные",
     "items": [{"item": "Павлова", "callback_data": "pavlova", "price": 200, "image_url": "images/pavlova.jpg"}]
   },
   {

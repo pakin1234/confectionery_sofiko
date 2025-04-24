@@ -125,6 +125,15 @@
             "paid": false,
             "date": "2025-04-19",
             "timestamp": 1745059574
+        },
+        {
+            "order_id": 15,
+            "item": "Сникерс",
+            "type": "product",
+            "price": 4500,
+            "paid": false,
+            "date": "2025-04-24",
+            "timestamp": 1745481254
         }
     ],
     "5253954023": [
