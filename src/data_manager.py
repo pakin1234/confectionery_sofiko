@@ -122,6 +122,13 @@ class DataManager:
     '''АРТЁМ: заккоментил владовский код, сделал такую же реализацию как у паши с кэшем'''
 
     # async def load_courses_base(self) -> List[Course]:
+<<<<<<< HEAD
+=======
+    #     '''
+    #     Получаем всю базу курсов
+    #     надо будет распарсить, когда будем состыковывать модули
+    #     '''
+>>>>>>> 9fcf79536583e16a3232d91847e190ac524c3574
     #
     #     if not os.path.exists(self.courses_file_path):
     #         return {}
@@ -226,24 +233,3 @@ class DataManager:
 
 
 
-# async def main():
-#     manager = DataManager()
-
-#     ''' Когда будем вызывать какие-то функции работы с базами, которые принимают тг-id пользователя 
-#     лучше использовать sha256 от id в качестве параметра id,
-#     и выглядеть это должно так: sha256(message.from_user.id).hexdigest()'''
-
-#     # Добавляем заказ
-#     item = input("введите изделие: ")
-#     new_order = await manager.add_order(
-#         user_id=sha256("tg-id".encode('utf-8')).hexdigest(),
-#         order_data = await manager.get_product_from_base(item))
-#     print(new_order)
-
-
-#     # Смотрим неоплаченные
-    
-#     await manager.check_not_paid(sha256("tg-id".encode('utf-8')).hexdigest())
-
-
-# asyncio.run(main())
